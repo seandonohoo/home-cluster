@@ -537,3 +537,8 @@ The world is your cluster, have at it!
 Big shout out to all the authors and contributors to the projects that we are using in this repository.
 
 [@whazor](https://github.com/whazor) created [this website](https://nanne.dev/k8s-at-home-search/) as a creative way to search Helm Releases across GitHub. You may use it as a means to get ideas on how to configure an applications' Helm values.
+
+
+## Extra Steps
+Jumbo frames
+kubectl patch installation.operator.tigera.io default --type merge -p '{"spec":{"calicoNetwork":{"mtu":8950}}}'
