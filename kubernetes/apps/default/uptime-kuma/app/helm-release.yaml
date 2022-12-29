@@ -24,7 +24,7 @@ spec:
       retries: 3
   values:
     controller:
-      type: statefulSet
+      type: statefulset
     image:
       repository: louislam/uptime-kuma
       tag: 1.19.0
