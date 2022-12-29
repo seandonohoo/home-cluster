@@ -7,3 +7,4 @@ resources:
   - ./hajimari/ks.yaml
   - ./qbittorrent/ks.yaml
   - ./sabnzbd/ks.yaml
+  - ./uptime-kuma/ks.yaml
