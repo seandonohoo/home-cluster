@@ -32,7 +32,7 @@ spec:
       main:
         ports:
           http:
-            port: *port
+            port: 3031
     ingress:
       main:
         enabled: true
