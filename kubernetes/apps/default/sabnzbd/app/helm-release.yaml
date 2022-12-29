@@ -78,7 +78,7 @@ spec:
       - name: tempdownloads
         mountPath: /tempdownloads
         accessMode: ReadWriteOnce
-        size: 300Gi
+        size: 200Gi
         storageClass: local-path
         labels:
           snapshot.home.arpa/enabled: "true"
