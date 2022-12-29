@@ -75,13 +75,14 @@ spec:
         storageClass: nfs-fast
         labels:
           snapshot.home.arpa/enabled: "true"
+      - name: tempdownloads
+        mountPath: /tempdownloads
+        accessMode: ReadWriteOnce
+        size: 300Gi
+        storageClass: local-path
+        labels:
+          snapshot.home.arpa/enabled: "true"
     persistence:
-      downloads:
-        enabled: true
-        type: nfs
-        server: 10.26.10.5
-        path: /volume3/k3s-fast
-        mountPath: /downloads
       media:
         enabled: true
         type: nfs
