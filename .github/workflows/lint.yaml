@@ -26,7 +26,7 @@ jobs:
           fetch-depth: 0
 
       - name: MegaLinter
-        uses: oxsecurity/megalinter@v6.15.0
+        uses: oxsecurity/megalinter@d9cc1b4179f513fcb50fa438babf54816f8037d5 # v6.17.0
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           VALIDATE_ALL_CODEBASE: ${{ github.event_name == 'workflow_dispatch' }}
