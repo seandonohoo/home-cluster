@@ -5,6 +5,7 @@ resources:
   - ./namespace.yaml
   - ./echo-server/ks.yaml
   - ./hajimari/ks.yaml
+  - ./plex/ks.yaml
   - ./qbittorrent/ks.yaml
   - ./sabnzbd/ks.yaml
   - ./uptime-kuma/ks.yaml
