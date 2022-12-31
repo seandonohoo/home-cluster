@@ -25,7 +25,7 @@ spec:
   values:
     image:
       repository: ghcr.io/angelnu/pod-gateway
-      tag: v1.6.1@sha256:dcb2d814a4f7dc175f096e5a14035b5afbd2ae5b9e07eb623847a121bd46bca4
+      tag: v1.8.1@sha256:690b6365728fe9012ad4cdfca38334992664596513dca187d1b93d2025205776
     addons:
       netshoot:
         enabled: true
