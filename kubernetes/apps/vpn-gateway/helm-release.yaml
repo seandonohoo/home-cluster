@@ -98,9 +98,9 @@ spec:
     #       - type: tcp
     #         port: ${SECRET_VPN_FORWARDED_PORT_1}
     webhook:
-      gatewayAnnotation: setGateway
-      gatewayDefault: false
-      gatewayLabel: setGateway
+      # gatewayAnnotation: setGateway
+      gatewayDefault: true
+      # gatewayLabel: setGateway
       namespaceSelector:
         label: "vpn-routed-gateway"
       image:
