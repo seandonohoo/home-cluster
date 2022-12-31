@@ -81,13 +81,14 @@ spec:
     routed_namespaces:
       - vpn-routed
     settings:
-      #VPN_INTERFACE: wg0
-      #VXLAN_ID: 43
-      VXLAN_IP_NETWORK: 172.16.1
-      #VPN_BLOCK_OTHER_TRAFFIC: true
-      #VPN_TRAFFIC_PORT: "${SECRET_VPN_GATEWAY_PORT}"
-      NOT_ROUTED_TO_GATEWAY_CIDRS: "172.16.0.0/12 10.26.10.0/24 10.26.1.0/24"
-      VPN_LOCAL_CIDRS: "172.16.0.0/12 10.26.10.0/24 10.26.1.0/24"
+      VPN_INTERFACE: wg0
+      VXLAN_ID: 43
+      VXLAN_IP_NETWORK: 172.16.0
+      VXLAN_GATEWAY_FIRST_DYNAMIC_IP: 20
+      VPN_BLOCK_OTHER_TRAFFIC: true
+      VPN_TRAFFIC_PORT: "51820"
+      VPN_LOCAL_CIDRS: "10.0.0.0/8 192.168.0.0/16 172.16.0.0/12"
+      NOT_ROUTED_TO_GATEWAY_CIDRS: "10.0.0.0/8 192.168.0.0/16 172.16.0.0/12"
     # publicPorts:
     #   - hostname: qbittorrent
     #     IP: 10
