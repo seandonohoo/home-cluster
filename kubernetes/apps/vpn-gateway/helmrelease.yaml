@@ -26,7 +26,7 @@ spec:
         kind: HelmRepository
         name: angelnu
         namespace: flux-system
-      interval: 5m
+      interval: 10m
   values:
     image:
       repository: ghcr.io/angelnu/pod-gateway
