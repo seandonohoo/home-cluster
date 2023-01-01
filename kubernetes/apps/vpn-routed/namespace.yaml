@@ -7,5 +7,6 @@ metadata:
     routed-gateway: "true"
     kustomize.toolkit.fluxcd.io/prune: disabled
     vpn-routed-gateway: "true"
+    setVPNGateway: "true"
     pod-security.kubernetes.io/enforce: privileged
     pod-security.kubernetes.io/enforce-version: latest
