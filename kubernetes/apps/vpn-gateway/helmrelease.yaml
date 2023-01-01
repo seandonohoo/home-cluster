@@ -53,7 +53,7 @@ spec:
         repository: ghcr.io/angelnu/gateway-admision-controller
         tag: v3.7.0
       gatewayDefault: false
-      gatewayLabel: setVPNGateway
+      # gatewayLabel: setVPNGateway
       # gatewayAnnotation: setVPNGateway
       namespaceSelector:
         label: "vpn-routed"
