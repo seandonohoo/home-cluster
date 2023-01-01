@@ -33,7 +33,7 @@ spec:
       tag: v1.8.1
     DNS: 172.16.1.1
     routed_namespaces:
-    - vpn-routed
+      - vpn-routed
     # publicPorts:
     # - hostname: torr
     #   IP: 2
@@ -56,7 +56,7 @@ spec:
       # gatewayLabel: setVPNGateway
       # gatewayAnnotation: setVPNGateway
       namespaceSelector:
-        label: "vpn-routed"
+        label: "vpn-routed-gateway"
     addons:
       vpn:
         enabled: true
