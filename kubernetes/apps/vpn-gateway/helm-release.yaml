@@ -1,3 +1,4 @@
+# yamllint disable-file
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
@@ -68,6 +69,19 @@ spec:
           capabilities:
             add:
               - NET_ADMIN
+        networkPolicy:
+          enabled: true
+          egress:
+            - to:
+              - ipBlock:
+                  cidr: 0.0.0.0/0
+              ports:
+              # VPN traffic
+              - port: &vpn_port 51820
+                protocol: UDP
+            - to:
+              - ipBlock:
+                  cidr: 10.0.0.0/8
     routed_namespaces:
       - vpn-routed
     settings:
