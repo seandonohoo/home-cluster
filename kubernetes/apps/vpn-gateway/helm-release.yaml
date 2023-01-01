@@ -29,55 +29,45 @@ spec:
     addons:
       netshoot:
         enabled: true
-      # vpn:
-      #   enabled: true
-      #   type: wireguard
-      #   wireguard:
-      #     image:
-      #       repository: ghcr.io/k8s-at-home/wireguard
-      #       tag: v1.0.20210914
-      #   securityContext:
-      #     runAsUser: 568
-      #     runAsGroup: 568
-      #     capabilities:
-      #       drop:
-      #         - "SYS_MODULE"
-      #   env:
-      #     - name: TZ
-      #       value: "America/Chicago"
-      #     - name: IPTABLES_BACKEND
-      #       value: nft
-      #     - name: KILLSWITCH
-      #       value: "false"
-      #   configFileSecret: vpn-gateway-vpnconfig
-      #   resources:
-      #     requests:
-      #       cpu: 100m
-      #       memory: 128Mi
-      #     limits:
-      #       memory: 512Mi
-      #   livenessProbe:
-      #     exec:
-      #       command:
-      #         - sh
-      #         - -c
-      #         - curl -s https://am.i.mullvad.net/connected | grep -q "are connected"
-      #     initialDelaySeconds: 30
-      #     periodSeconds: 60
-      #     failureThreshold: 1
-      #   networkPolicy:
-      #     enabled: true
-      #     egress:
-      #       - to:
-      #           - ipBlock:
-      #               cidr: 0.0.0.0/0
-      #         ports:
-      #           # VPN traffic
-      #           - port: ${SECRET_VPN_GATEWAY_PORT}
-      #             protocol: UDP
-      #       - to:
-      #           - namespaceSelector: {}
-    # DNS: 172.16.1.1
+
+      vpn:
+        enabled: true
+        type: gluetun
+        image:
+          repository: docker.io/qmcgaw/gluetun
+          tag: v3.32.0@sha256:70e2b9fe66941d6de31419c3207b525293f2e6a92a3788869bb337a17e0e5ec8
+
+        env:
+          - name: VPN_SERVICE_PROVIDER
+            value: mullvad
+          - name: VPN_TYPE
+            value: wireguard
+          - name: VPN_INTERFACE
+            value: wg0
+          - name: FIREWALL
+            value: "off"
+          - name: DOT
+            value: "off"
+          - name: SERVER_COUNTRIES
+            value: USA
+          - name: SERVER_HOSTNAMES
+            value: us-dal-wg-403
+          - name: SERVER_CITIES
+            value: Dallas TX
+          - name: WIREGUARD_PRIVATE_KEY
+            valueFrom:
+              secretKeyRef:
+                name: vpnconfig
+                key: WIREGUARD_PRIVATE_KEY
+          - name: WIREGUARD_ADDRESSES
+            valueFrom:
+              secretKeyRef:
+                name: vpnconfig
+                key: WIREGUARD_ADDRESSES
+        securityContext:
+          capabilities:
+            add:
+              - NET_ADMIN
     routed_namespaces:
       - vpn-routed
     settings:
@@ -89,17 +79,17 @@ spec:
       VPN_TRAFFIC_PORT: "51820"
       VPN_LOCAL_CIDRS: "10.0.0.0/8 192.168.0.0/16 172.16.0.0/12"
       NOT_ROUTED_TO_GATEWAY_CIDRS: "10.0.0.0/8 192.168.0.0/16 172.16.0.0/12"
-    # publicPorts:
-    #   - hostname: qbittorrent
-    #     IP: 10
-    #     ports:
-    #       - type: tcp
-    #         port: ${SECRET_VPN_FORWARDED_PORT_1}
-    #       - type: tcp
-    #         port: ${SECRET_VPN_FORWARDED_PORT_1}
+    publicPorts:
+      - hostname: qbittorrent
+        IP: 10
+        ports:
+          - type: tcp
+            port: ${SECRET_VPN_FORWARDED_PORT_1}
+          - type: tcp
+            port: ${SECRET_VPN_FORWARDED_PORT_1}
     webhook:
       # gatewayAnnotation: setGateway
-      gatewayDefault: true
+      gatewayDefault: false
       # gatewayLabel: setGateway
       namespaceSelector:
         label: "vpn-routed-gateway"
