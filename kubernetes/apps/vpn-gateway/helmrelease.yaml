@@ -4,7 +4,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: vpn-gateway
-  namespace: vpn
+  namespace: vpn-gateway
 spec:
   interval: 5m
   install:
@@ -113,13 +113,11 @@ spec:
               protocol: UDP
           - to:
             - ipBlock:
-                cidr: ${NETWORK_CIDR_K8S_CLUSTER}
+                cidr: "10.0.0.0/8"
           - to:
             - ipBlock:
-                cidr: ${NETWORK_CIDR_K8S_SERVICE}
+                cidr: "192.168.0.0/16"
           - to:
             - ipBlock:
-                cidr: ${NETWORK_CIDR_K8S_SERVICE_EXTERNAL}
-          - to:
-            - ipBlock:
-                cidr: ${NETWORK_CIDR_HOST}
+                cidr: "172.16.0.0/12"
+
