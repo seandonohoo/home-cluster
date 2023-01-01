@@ -82,8 +82,6 @@ spec:
           value: "1.1.1.1"
         - name: HEALTH_VPN_DURATION_INITIAL
           value: 30s
-        - name: TZ
-          value: ${TIMEZONE}
         - name: SERVER_HOSTNAMES
           value: us-dal-wg-403
         - name: SERVER_CITIES
