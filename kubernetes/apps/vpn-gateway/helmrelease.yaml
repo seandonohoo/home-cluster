@@ -34,14 +34,6 @@ spec:
     DNS: 172.16.0.1
     routed_namespaces:
       - download
-    # publicPorts:
-    # - hostname: qbitt
-    #   IP: 2
-    #   ports:
-    #   - type: tcp
-    #     port: ${SECRET_VPN_BT_FORWARD_PORT_1}
-    #   - type: udp
-    #     port: ${SECRET_VPN_BT_FORWARD_PORT_1}
     settings:
       NOT_ROUTED_TO_GATEWAY_CIDRS: "10.0.0.0/8 192.168.0.0/16 172.16.0.0/12"
       VPN_INTERFACE: wg0
@@ -50,6 +42,14 @@ spec:
       VPN_LOCAL_CIDRS: "10.0.0.0/8 192.168.0.0/16 172.16.0.0/12"
       VXLAN_ID: 43
       VXLAN_IP_NETWORK: 172.16.0
+    publicPorts:
+      - hostname: qbitt
+        IP: 2
+        ports:
+          - type: tcp
+            port: ${SECRET_VPN_BT_FORWARD_PORT_1}
+          - type: udp
+            port: ${SECRET_VPN_BT_FORWARD_PORT_1}
     webhook:
       image:
         repository: ghcr.io/angelnu/gateway-admision-controller
