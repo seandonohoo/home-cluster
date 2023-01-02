@@ -55,7 +55,7 @@ spec:
             proxy_set_header Accept-Encoding "";
           hajimari.io/icon: mdi:download
         hosts:
-          - host: &host "{{ .Release.Name }}.donohoo.io"
+          - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
