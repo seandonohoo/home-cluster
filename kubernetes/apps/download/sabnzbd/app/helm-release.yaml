@@ -25,7 +25,7 @@ spec:
       retries: 3
   dependsOn:
     - name: vpn-gateway
-      namespace: vpn
+      namespace: vpn-gateway
     - name: ingress-nginx
       namespace: networking
   values:
