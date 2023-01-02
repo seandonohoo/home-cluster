@@ -9,7 +9,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-csi-driver-nfs-apps
-  path: ./kubernetes/apps/default/sabnzbd/app
+  path: ./kubernetes/apps/download/sabnzbd/app
   prune: true
   sourceRef:
     kind: GitRepository
