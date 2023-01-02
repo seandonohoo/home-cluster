@@ -35,7 +35,7 @@ spec:
     routed_namespaces:
       - download
     publicPorts:
-    - hostname: qbittorrent
+    - hostname: qbitt
       IP: 2
       ports:
       - type: tcp
