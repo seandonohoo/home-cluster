@@ -23,6 +23,11 @@ spec:
   upgrade:
     remediation:
       retries: 3
+  dependsOn:
+    - name: vpn-gateway
+      namespace: vpn
+    - name: ingress-nginx
+      namespace: networking
   values:
     controller:
       type: statefulset
