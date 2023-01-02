@@ -1,0 +1,109 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/helmrelease_v2beta1.json
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: &app radarr
+  namespace: download
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: app-template
+      version: 1.2.0
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  dependsOn:
+    - name: vpn-gateway
+      namespace: vpn-gateway
+    - name: ingress-nginx
+      namespace: networking
+  uninstall:
+    keepHistory: false
+  values:
+    controller:
+      type: statefulset
+      annotations:
+        reloader.stakater.com/auto: "true"
+    image:
+      repository: ghcr.io/onedr0p/radarr-develop
+      tag: 4.3.1.6822@sha256:8b3167caff215443e1fd0cdcb417f85dc307faa97a216479df2c4257487c369e
+    env:
+      TZ: America/Chicago
+      RADARR__INSTANCE_NAME: Radarr
+      RADARR__PORT: &port 80
+      RADARR__APPLICATION_URL: "https://{{ .Release.Name }}.${SECRET_DOMAIN}"
+      RADARR__LOG_LEVEL: info
+    podAnnotations:
+      setVPNGateway: "true"
+    service:
+      main:
+        ports:
+          http:
+            port: *port
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: nginx
+        annotations:
+          nginx.ingress.kubernetes.io/configuration-snippet: |
+            proxy_set_header Accept-Encoding "";
+          hajimari.io/icon: mdi:filmstrip
+        hosts:
+          - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - *host
+    podSecurityContext:
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
+      fsGroupChangePolicy: "OnRootMismatch"
+      supplementalGroups:
+        - 100
+    volumeClaimTemplates:
+      - name: config
+        mountPath: /config
+        accessMode: ReadWriteOnce
+        size: 15Gi
+        storageClass: nfs-fast
+        labels:
+          snapshot.home.arpa/enabled: "true"
+    persistence:
+      media:
+        enabled: true
+        type: nfs
+        server: 10.26.10.5
+        path: /volume1/Media
+        mountPath: /media
+      incomplete:
+        enabled: true
+        type: emptyDir
+      # scripts:
+      #   enabled: true
+      #   type: configMap
+      #   name: radarr-configmap
+      #   subPath: pushover-notify.sh
+      #   mountPath: /scripts/pushover-notify.sh
+      #   defaultMode: 0775
+      #   readOnly: true
+    resources:
+      requests:
+        cpu: 10m
+        memory: 250Mi
+      limits:
+        memory: 2000Mi
