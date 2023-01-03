@@ -86,7 +86,7 @@ spec:
       config:
         enabled: true
         type: configMap
-        name: *app
+        name: "authelia-configmap"
         subPath: configuration.yml
         mountPath: /config/configuration.yml
         readOnly: false
