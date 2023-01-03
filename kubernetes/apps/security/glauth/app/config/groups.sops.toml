@@ -1,0 +1,20 @@
+{
+	"data": "ENC[AES256_GCM,data:tq5fFcdogatz1KUwLQ/emH9OZJXv6OxI/dUFPYbvWqmGSlvzcNJn1kUw9SV7oPskxErhdhe6Fgumxbky8g2EVHEDowe0ADHqQLDG+jJVf0F1Pp4RNdGJ4kB7vALQ9rqc5K3QwKWfSwc9iW4Zk3KEoprBkLFQDDOEx6OEug+kYTr7Zr5doLzfmOT+CUvDJEwSufwOljY1h3aM3Bn+KSM=,iv:EBw8/wN0IN7wERa9Eg3dADUWkltglektLJ9uMkqkQKA=,tag:vCywaiBHd26U+nMQwxu5Fg==,type:str]",
+	"sops": {
+		"kms": null,
+		"gcp_kms": null,
+		"azure_kv": null,
+		"hc_vault": null,
+		"age": [
+			{
+				"recipient": "age1vuvrs7evuks8zjl949dl2mcn4elxz0578cs03tnc63lt5aej49xqv92j8a",
+				"enc": "-----BEGIN AGE ENCRYPTED FILE-----\nYWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA5aVI1VHc3cVdqZEF2ekV4\nTTg4WVhTZ2tPdElWckdFSFd4SmxIMzRhZTAwCm5EN3ZMVG54R29rVkRWWkt3dVVQ\nYnBrN2tsZVlXYnRNMTB3Vi9zeVZxWkUKLS0tIFNBcVFiYmtCSEIvaXNKTkRVT3ZH\nUE1RM25ZZmNBTkxyOURlUDFqcFA2dHMKoNlPDa+LF3/PGuW7ws5ZhSa6qrdpwWvh\nhziGtorn0ObVOxQc5DUnR4iKgkU4Oum16lL5lvB+cmfHhlnO9pOKDw==\n-----END AGE ENCRYPTED FILE-----\n"
+			}
+		],
+		"lastmodified": "2023-01-03T19:50:58Z",
+		"mac": "ENC[AES256_GCM,data:iowbA7CQXyAiSI0wtJl3jaj+h4guz1QBG/o2gZNLfMFzhXEMMM55o9Ac3mW9wXDXK5v1866CMKfUSCKFdKE/8gsS78XY5cstwhGA87zQ+BB6P6oywR6PdHu6erQCQeM3eZZaZ67ZQFfQ8QC3ZEaRUAHGwdnVmJSLEAdw5W4oxPQ=,iv:ddAVRCjE+p7Ivx9aVSx4paleN0WxTkOdwEBOOUm8LiM=,tag:cBL0dHONwSW33JBHsaJ/yQ==,type:str]",
+		"pgp": null,
+		"encrypted_regex": "^(data|stringData)$",
+		"version": "3.7.3"
+	}
+}
