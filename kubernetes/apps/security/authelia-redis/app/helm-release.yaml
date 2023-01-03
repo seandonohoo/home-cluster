@@ -41,6 +41,14 @@ spec:
         ports:
           http:
             port: 6379
+    volumeClaimTemplates:
+      - name: data
+        mountPath: /data
+        accessMode: ReadWriteOnce
+        size: 10Gi
+        storageClass: nfs-fast
+        labels:
+          snapshot.home.arpa/enabled: "true"
     resources:
       requests:
         cpu: 10m
