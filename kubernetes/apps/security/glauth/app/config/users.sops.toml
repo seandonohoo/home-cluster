@@ -1,0 +1,20 @@
+{
+	"data": "ENC[AES256_GCM,data:m8mkK1CMQlhhUmRpzrTYXMppStgKbea/BC71w4w9+up+0bVqYlg/EdFYzJuYUuyRPqqmvohrDIWuy+xQ2vBRHMR/gjuA+9R3mmfZj6y4uvJRPlvAgo5JX1RtaaEh4VJmlNxQc6ewrPMf1VtKt1fWI4lEjmRYcECnJ0cVBwTUxlul/ZXrVU8V3Mfo6viKSz4z14oUFdfD2Hxeyvpyqd/TtpNcYqZhNUoXomEX+n5DCKHqayO9E/N/iMTM7GcqDmeeY5doUbWfovNEWLLoMG1DlwvB4iqjh8KTEJM1Z7CjR9EvbU4iLFrSSUSfw+3dVs3KVGjtU7EzpTLsZuhicQPPAQ+7D363Uk70CBoy5raoa7zG3Se89O4kKP0Y0vMM/aArA7n4zECmSBf7nqoGBw7LGnnCIy8/64tJ2BYRujADJCeSv7RJ53R2VPH5vU3KLD3XJ8UOU0rE9o+Perbo7vX2MdM/j2tmr4+Y9vRuSNelxaWm96sIix5d5CHOQX1DhhQOnMmQCGzi1ETwB1pKmcpqCHt3JLw+eAeF3TLmHS/zsJZQ9+jVvfmVbTcizu0SDmT3vg9We2Sr3JOcgLGEY67xESlueYHBwpBRQMruROGkSo2eALIptwvw2N23bOvjf/egBFBo3cZVJWopuXOMUdiGlBp7x/AqYX0qRKVf1ZnAZ4UrzkSwiAa4Tu2Ci891104JB4mME6Po7JJ5/wRRHCMy+i19+Dgq4kFAtSX6XuoGZEKAA+ZJMKhHWtYajEsQb943kyZI2Zu5kXqhxohBKlRTWuxwZ+P+zS0iDEQ+teYeJrQPbkqUIFL0ptonYt4w5NeCMG7uzz4IcIz1hwyth8tiHY8GRS1U7LfExbv5MxKOFRsBk6EdTgU2gLeNp2QJvJZLlpn0bep/agSkU5I4al1AGZoC04fCA3dfF77i54As3cYn7wI1Abaf6KTVY8FCkFUXv98KrEE=,iv:Z2S0mup/gseaL9I3/QTeunPZ3I5KptH6LgcaQYHkUzk=,tag:VyWRWGM0qgoKsFDve5f9Zg==,type:str]",
+	"sops": {
+		"kms": null,
+		"gcp_kms": null,
+		"azure_kv": null,
+		"hc_vault": null,
+		"age": [
+			{
+				"recipient": "age1vuvrs7evuks8zjl949dl2mcn4elxz0578cs03tnc63lt5aej49xqv92j8a",
+				"enc": "-----BEGIN AGE ENCRYPTED FILE-----\nYWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAxQkdDanZkSTRHbGRSbU4y\nWlRkcHFMNzJVdDhmSDQwYUdJNThuQ0VXa0U0Clc0OE5vejZpcEszZ2IrdTV6OHVT\nV3hjZ2xNSGpkY1hNQlJ3WmlNb09kaW8KLS0tIGp1bUZoNnpSMDRmOUlNWVdpS3ND\nL1hBODJzVkVZUUIwN3ZNbWtaUWl1Q2MKh5b30X79HaoIZorU+9V7uW9/QLa1K9ll\nk/6NHMkCLXavFNmpMGfoPkrRkObos6DQLqzSUDV8pYqQztYOr0XbbA==\n-----END AGE ENCRYPTED FILE-----\n"
+			}
+		],
+		"lastmodified": "2023-01-03T19:51:24Z",
+		"mac": "ENC[AES256_GCM,data:3SXMGHOIAeM3WxaKhZaWpz3L5cA+L4bmcL2bHr0o6zunjJmtTSetAngfc7dU5MPF3Bjkto340A//QDeVTbO9CU8lINXDvreuVJQJQr+uc23blk8HKybPXQcQ66bQE6RycVMeteO5wv3W2/m4MN3cgu4EMz8ilfpsniVU2WseHfY=,iv:IofnrvQkxGaTWEyufHiAPTPi79A2LOz1sxn5MBikiW0=,tag:FFxMVjm+Rv/EdagqMJmuug==,type:str]",
+		"pgp": null,
+		"encrypted_regex": "^(data|stringData)$",
+		"version": "3.7.3"
+	}
+}
