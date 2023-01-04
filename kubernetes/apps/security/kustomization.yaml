@@ -4,5 +4,6 @@ kind: Kustomization
 resources:
   - ./namespace.yaml
   - ./authelia-redis/ks.yaml
-#  - ./authelia/ks.yaml
+  - ./authelia-postgres/ks.yaml
+  # - ./authelia/ks.yaml
   - ./glauth/ks.yaml

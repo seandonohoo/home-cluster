@@ -1,0 +1,14 @@
+# yamllint disable
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: authelia-postgresql-data
+  namespace: networking
+spec:
+  storageClassName: nfs-fast
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 4Gi
