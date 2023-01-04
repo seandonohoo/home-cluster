@@ -1,0 +1,15 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: donohoo-io
+  namespace: networking
+spec:
+  secretName: donohoo-io-tls
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: donohoo-io
+  dnsNames:
+    - donohoo.io
+    - "*.donohoo.io"
