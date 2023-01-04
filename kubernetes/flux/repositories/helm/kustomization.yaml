@@ -5,6 +5,7 @@ resources:
   - ./angelnu.yaml
   - ./bitnami.yaml
   - ./bjw-s.yaml
+  - ./cloudnative-pg.yaml
   - ./csi-driver-nfs.yaml
   - ./external-dns.yaml
   - ./hajimari.yaml
