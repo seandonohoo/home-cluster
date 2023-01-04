@@ -9,7 +9,7 @@ spec:
   issuerRef:
     name: letsencrypt-production
     kind: ClusterIssuer
-  commonName: donohoo-io
+  commonName: donohoo.io
   dnsNames:
     - donohoo.io
     - "*.donohoo.io"
