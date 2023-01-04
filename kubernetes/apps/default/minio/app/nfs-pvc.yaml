@@ -5,7 +5,7 @@ metadata:
   name: minio-nfs
 spec:
   capacity:
-    storage: 1Mi
+    storage: 1Gi
   accessModes:
     - ReadWriteMany
   storageClassName: minio-nfs
@@ -30,4 +30,4 @@ spec:
   storageClassName: minio-nfs
   resources:
     requests:
-      storage: 1Mi
+      storage: 1Gi
