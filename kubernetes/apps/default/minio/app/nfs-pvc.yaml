@@ -13,11 +13,6 @@ spec:
   nfs:
     server: 10.26.1.5
     path: /volume3/k3s-fast
-  mountOptions:
-    - nfsvers=4.1
-    - nconnect=8
-    - hard
-    - noatime
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
