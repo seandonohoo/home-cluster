@@ -130,11 +130,11 @@ spec:
         accessMode: ReadWriteMany
         size: 1Mi
         storageClass: nfs-fast
-    persistence:
-      config:
-        enabled: true
-        existingClaim: config
-        mountPath: /data
+    # persistence:
+    #   config:
+    #     enabled: true
+    #     existingClaim: config
+    #     mountPath: /data
     resources:
       requests:
         memory: 100Mi
