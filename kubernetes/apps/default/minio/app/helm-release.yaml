@@ -124,10 +124,16 @@ spec:
       fsGroupChangePolicy: "OnRootMismatch"
       supplementalGroups:
         - 100
+    volumeClaimTemplates:
+      - name: config
+        mountPath: /data
+        accessMode: ReadWriteMany
+        size: 1Mi
+        storageClass: nfs-fast
     persistence:
       config:
         enabled: true
-        existingClaim: minio-nfs
+        existingClaim: config
         mountPath: /data
     resources:
       requests:
