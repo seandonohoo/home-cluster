@@ -56,6 +56,9 @@ spec:
         use-forwarded-headers: "true"
       metrics:
         enabled: false
+      extraArgs:
+        default-ssl-certificate: |-
+          networking/donohoo-io-tls
       podAnnotations:
         configmap.reloader.stakater.com/reload: "cloudflare-networks"
       resources:

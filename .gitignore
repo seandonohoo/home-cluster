@@ -16,3 +16,4 @@ xanmanning.k3s*
 .terraform
 .terraform.tfstate*
 terraform.tfstate*
+kubernetes/apps/networking/ingress-nginx/app-onedr0p/*
