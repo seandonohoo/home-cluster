@@ -101,6 +101,7 @@ spec:
         tls:
           - hosts:
               - *console-host
+            secretName: minio-server-tls-prod
       s3:
         enabled: true
         ingressClassName: nginx
