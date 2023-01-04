@@ -124,17 +124,11 @@ spec:
       fsGroupChangePolicy: "OnRootMismatch"
       supplementalGroups:
         - 100
-    volumeClaimTemplates:
-      - name: config
+    persistence:
+      config:
+        enabled: true
+        existingClaim: config
         mountPath: /data
-        accessMode: ReadWriteMany
-        size: 1Mi
-        storageClass: nfs-fast
-    # persistence:
-    #   config:
-    #     enabled: true
-    #     existingClaim: config
-    #     mountPath: /data
     resources:
       requests:
         memory: 100Mi
