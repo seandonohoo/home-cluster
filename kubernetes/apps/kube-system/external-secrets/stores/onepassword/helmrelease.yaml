@@ -82,9 +82,9 @@ spec:
         tls:
           - hosts:
               - *host
-    podSecurityContext:
-      runAsUser: 999
-      runAsGroup: 999
+    # podSecurityContext:
+    #   runAsUser: 999
+    #   runAsGroup: 999
     persistence:
       shared:
         enabled: true
