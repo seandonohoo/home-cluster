@@ -7,5 +7,5 @@ resources:
   - ./echo-server/ks.yaml
   - ./hajimari/ks.yaml
   - ./minio/ks.yaml
-  #- ./redis/ks.yaml
+  - ./redis/ks.yaml
   - ./uptime-kuma/ks.yaml
