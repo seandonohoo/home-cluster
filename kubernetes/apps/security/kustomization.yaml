@@ -5,4 +5,4 @@ resources:
   - ./namespace.yaml
   - ./glauth/ks.yaml
   #- ./authelia-redis/ks.yaml
-  - ./authelia/ks.yaml
+  # - ./authelia/ks.yaml
