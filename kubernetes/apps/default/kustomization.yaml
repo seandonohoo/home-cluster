@@ -7,6 +7,6 @@ resources:
   - ./echo-server/ks.yaml
   - ./hajimari/ks.yaml
   - ./minio/ks.yaml
-  #- ./plex/ks.yaml
+  - ./plex/ks.yaml
   - ./redis/ks.yaml
   - ./uptime-kuma/ks.yaml
