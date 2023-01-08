@@ -68,46 +68,36 @@ spec:
             repository: docker.io/qmcgaw/gluetun
             tag: latest@sha256:5380fcff596a613e7cdfb3ec4185ef1ed4cb1718a3694e4646661e90df709213
         env:
-        - name: VPN_SERVICE_PROVIDER
-          valueFrom:
-            secretKeyRef:
-              name: vpnconfig
-              key: VPN_SERVICE_PROVIDER
         - name: VPN_TYPE
           value: wireguard
         - name: VPN_INTERFACE
           value: wg0
-        - name: SERVER_COUNTRIES
-          valueFrom:
-            secretKeyRef:
-              name: vpnconfig
-              key: VPN_SERVER_COUNTRIES
         - name: FIREWALL
           value: "off"
         - name: DOT
           value: "off"
         - name: HEALTH_VPN_DURATION_INITIAL
           value: 30s
-        - name: SERVER_HOSTNAMES
-          valueFrom:
-            secretKeyRef:
-              name: vpnconfig
-              key: VPN_SERVER_HOSTNAMES
-        - name: SERVER_CITIES
-          valueFrom:
-            secretKeyRef:
-              name: vpnconfig
-              key: VPN_SERVER_CITIES
         - name: WIREGUARD_PRIVATE_KEY
           valueFrom:
             secretKeyRef:
               name: vpnconfig
               key: WIREGUARD_PRIVATE_KEY
+        - name: WIREGUARD_PUBLIC_KEY
+          valueFrom:
+            secretKeyRef:
+              name: vpnconfig
+              key: WIREGUARD_PUBLIC_KEY
         - name: WIREGUARD_ADDRESSES
           valueFrom:
             secretKeyRef:
               name: vpnconfig
               key: WIREGUARD_ADDRESSES
+        - name: VPN_ENDPOINT_IP
+          valueFrom:
+            secretKeyRef:
+              name: vpnconfig
+              key: VPN_ENDPOINT_IP
         - name: VPN_ENDPOINT_PORT
           valueFrom:
             secretKeyRef:
