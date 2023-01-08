@@ -78,6 +78,11 @@ spec:
           value: "off"
         - name: HEALTH_VPN_DURATION_INITIAL
           value: 30s
+        - name: VPN_SERVICE_PROVIDER
+          valueFrom:
+            secretKeyRef:
+              name: vpnconfig
+              key: VPN_SERVICE_PROVIDER
         - name: WIREGUARD_PRIVATE_KEY
           valueFrom:
             secretKeyRef:
