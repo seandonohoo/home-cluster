@@ -84,6 +84,8 @@ spec:
               key: VPN_SERVER_COUNTRIES
         - name: FIREWALL
           value: "off"
+        - name: SHADOWSOCKS
+          value: "off"
         - name: DOT
           value: "off"
         - name: HEALTH_TARGET_ADDRESS
