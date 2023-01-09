@@ -16,7 +16,7 @@ spec:
   healthChecks:
     - apiVersion: helm.toolkit.fluxcd.io/v2beta1
       kind: HelmRelease
-      name: proton-bridge
+      name: protonmail-bridge
       namespace: mail
   interval: 30m
   retryInterval: 1m
