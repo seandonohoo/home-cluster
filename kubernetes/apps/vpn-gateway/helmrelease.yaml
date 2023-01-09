@@ -103,7 +103,7 @@ spec:
           - name: FIREWALL
             value: "off"
           - name: DOT
-            value: "on"
+            value: "off"
           - name: SERVER_CITIES
             value: "Dallas TX"
           # - name: FIREWALL_VPN_INPUT_PORTS
