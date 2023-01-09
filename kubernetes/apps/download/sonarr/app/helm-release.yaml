@@ -81,7 +81,7 @@ spec:
         mountPath: /config
         accessMode: ReadWriteOnce
         size: 10Gi
-        storageClass: nfs-fast
+        storageClass: local-path
         labels:
           snapshot.home.arpa/enabled: "true"
     persistence:
