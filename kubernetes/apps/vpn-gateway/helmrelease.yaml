@@ -35,14 +35,14 @@ spec:
     routed_namespaces:
       - download
 
-    # publicPorts:
-    #   - hostname: qbittorrent # hostname assigned to the pod
-    #     IP: 10 # must be an integer between 2 and VXLAN_GATEWAY_FIRST_DYNAMIC_IP (20 by default)
-    #     ports:
-    #       - type: udp
-    #         port: ${VPN_FORWARDED_PORT_1}
-    #       - type: tcp
-    #         port: ${VPN_FORWARDED_PORT_1}
+    publicPorts:
+      - hostname: qbittorrent # hostname assigned to the pod
+        IP: 10 # must be an integer between 2 and VXLAN_GATEWAY_FIRST_DYNAMIC_IP (20 by default)
+        ports:
+          - type: udp
+            port: ${SECRET_VPN_BT_FORWARD_PORT_1}
+          - type: tcp
+            port: ${SECRET_VPN_BT_FORWARD_PORT_1}
 
     # Default VPN_VXLAN DNS
     DNS: 172.16.0.1
@@ -106,10 +106,8 @@ spec:
             value: "off"
           - name: SERVER_CITIES
             value: "Dallas TX"
-          # - name: FIREWALL_VPN_INPUT_PORTS
-          #   value: "${VPN_FORWARDED_PORT_1},${VPN_FORWARDED_PORT_2}"
-          # - name: VPN_ENDPOINT_PORT
-          #   value: ${VPN_GATEWAY_VPN_PORT}
+          - name: FIREWALL_VPN_INPUT_PORTS
+            value: "${SECRET_VPN_BT_FORWARD_PORT_1}"
 
         envFrom:
           - secretRef:
