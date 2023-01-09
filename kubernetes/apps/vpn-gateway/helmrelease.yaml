@@ -50,6 +50,17 @@ spec:
             port: ${SECRET_VPN_BT_FORWARD_PORT_1}
           - type: udp
             port: ${SECRET_VPN_BT_FORWARD_PORT_1}
+
+    livenessProbe:
+      exec:
+        command:
+          - sh
+          - -c
+          - if [ $(curl -s https://am.i.mullvad.net/country) = 'United States' ]; then exit 0; else exit $?; fi
+      initialDelaySeconds: 30
+      periodSeconds: 60
+      failureThreshold: 1
+
     webhook:
       image:
         repository: ghcr.io/angelnu/gateway-admision-controller
@@ -66,7 +77,7 @@ spec:
         gluetun:
           image:
             repository: docker.io/qmcgaw/gluetun
-            tag: latest@sha256:5380fcff596a613e7cdfb3ec4185ef1ed4cb1718a3694e4646661e90df709213
+            tag: latest
         env:
         - name: VPN_TYPE
           value: wireguard
@@ -76,8 +87,6 @@ spec:
           value: "off"
         - name: DOT
           value: "off"
-        - name: HEALTH_VPN_DURATION_INITIAL
-          value: 30s
         - name: VPN_SERVICE_PROVIDER
           valueFrom:
             secretKeyRef:
