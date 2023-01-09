@@ -108,8 +108,8 @@ spec:
             value: "Dallas TX"
           # - name: FIREWALL_VPN_INPUT_PORTS
           #   value: "${VPN_FORWARDED_PORT_1},${VPN_FORWARDED_PORT_2}"
-          - name: VPN_ENDPOINT_PORT
-            value: ${VPN_GATEWAY_VPN_PORT}
+          # - name: VPN_ENDPOINT_PORT
+          #   value: ${VPN_GATEWAY_VPN_PORT}
 
         envFrom:
           - secretRef:
