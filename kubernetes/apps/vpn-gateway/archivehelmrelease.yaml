@@ -1,0 +1,141 @@
+# yamllint disable-file
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: vpn-gateway
+  namespace: vpn-gateway
+spec:
+  interval: 5m
+  install:
+    timeout: 15m
+    remediation:
+      retries: 5
+  upgrade:
+    timeout: 15m
+    remediation:
+      retries: 5
+      remediateLastFailure: true
+    cleanupOnFail: true
+  chart:
+    spec:
+      # renovate: registryUrl=https://angelnu.github.io/helm-charts
+      chart: pod-gateway
+      version: 6.0.0
+      sourceRef:
+        kind: HelmRepository
+        name: angelnu
+        namespace: flux-system
+      interval: 10m
+  values:
+    image:
+      repository: ghcr.io/angelnu/pod-gateway
+      tag: v1.8.1
+    DNS: 172.16.0.1
+    routed_namespaces:
+      - download
+    publicPorts:
+    - hostname: qbitt
+      IP: 2
+      ports:
+      - type: tcp
+        port: ${SECRET_VPN_BT_FORWARD_PORT_1}
+      - type: udp
+        port: ${SECRET_VPN_BT_FORWARD_PORT_1}
+    settings:
+      NOT_ROUTED_TO_GATEWAY_CIDRS: "10.0.0.0/8 192.168.0.0/16 172.16.0.0/12"
+      VPN_INTERFACE: wg0
+      VPN_TRAFFIC_PORT: "51820"
+      VPN_BLOCK_OTHER_TRAFFIC: true
+      VPN_LOCAL_CIDRS: "10.0.0.0/8 192.168.0.0/16 172.16.0.0/12"
+      VXLAN_ID: 43
+      VXLAN_IP_NETWORK: 172.16.0
+    webhook:
+      image:
+        repository: ghcr.io/angelnu/gateway-admision-controller
+        tag: v3.7.0
+      gatewayDefault: false
+      gatewayLabel: setVPNGateway
+      gatewayAnnotation: setVPNGateway
+      namespaceSelector:
+        label: "vpn-routed-gateway"
+    addons:
+      vpn:
+        enabled: true
+        type: gluetun
+        gluetun:
+          image:
+            repository: docker.io/qmcgaw/gluetun
+            tag: latest@sha256:5380fcff596a613e7cdfb3ec4185ef1ed4cb1718a3694e4646661e90df709213
+        env:
+        - name: VPN_SERVICE_PROVIDER
+          valueFrom:
+            secretKeyRef:
+              name: vpnconfig
+              key: VPN_SERVICE_PROVIDER
+        - name: VPN_TYPE
+          value: wireguard
+        - name: VPN_INTERFACE
+          value: wg0
+        - name: SERVER_COUNTRIES
+          valueFrom:
+            secretKeyRef:
+              name: vpnconfig
+              key: VPN_SERVER_COUNTRIES
+        - name: FIREWALL
+          value: "off"
+        - name: SHADOWSOCKS
+          value: "off"
+        - name: DOT
+          value: "off"
+        - name: HEALTH_TARGET_ADDRESS
+          value: "1.1.1.1"
+        - name: HEALTH_VPN_DURATION_INITIAL
+          value: 30s
+        - name: SERVER_HOSTNAMES
+          valueFrom:
+            secretKeyRef:
+              name: vpnconfig
+              key: VPN_SERVER_HOSTNAMES
+        - name: SERVER_CITIES
+          valueFrom:
+            secretKeyRef:
+              name: vpnconfig
+              key: VPN_SERVER_CITIES
+        - name: WIREGUARD_PRIVATE_KEY
+          valueFrom:
+            secretKeyRef:
+              name: vpnconfig
+              key: WIREGUARD_PRIVATE_KEY
+        - name: WIREGUARD_ADDRESSES
+          valueFrom:
+            secretKeyRef:
+              name: vpnconfig
+              key: WIREGUARD_ADDRESSES
+        - name: VPN_ENDPOINT_PORT
+          valueFrom:
+            secretKeyRef:
+              name: vpnconfig
+              key: VPN_ENDPOINT_PORT
+        securityContext:
+          capabilities:
+            add:
+            - NET_ADMIN
+        networkPolicy:
+          enabled: true
+          egress:
+          - to:
+            - ipBlock:
+                cidr: 0.0.0.0/0
+            ports:
+            - port: 51820
+              protocol: UDP
+          - to:
+            - ipBlock:
+                cidr: "10.0.0.0/8"
+          - to:
+            - ipBlock:
+                cidr: "192.168.0.0/16"
+          - to:
+            - ipBlock:
+                cidr: "172.16.0.0/12"
