@@ -38,6 +38,7 @@ spec:
           - default
           - download
           - home
+          - networking
           - security
     ingress:
       main:
