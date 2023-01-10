@@ -29,7 +29,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: &host "home.{$SECRET_DOMAIN}"
+    - host: &host "home.${SECRET_DOMAIN}"
       http:
         paths:
           - path: /
