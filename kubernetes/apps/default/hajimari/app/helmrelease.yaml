@@ -37,6 +37,7 @@ spec:
         matchNames:
           - default
           - download
+          - home
           - security
     ingress:
       main:
