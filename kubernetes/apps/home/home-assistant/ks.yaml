@@ -10,7 +10,7 @@ metadata:
 spec:
   dependsOn:
     # - name: cluster-apps-emqx
-    - name: cluster-apps-cloudnative-pg
+    - name: cluster-apps-cloudnative-pg-app
     - name: cluster-apps-external-secrets-stores
     # - name: cluster-apps-rook-ceph-cluster
     # - name: cluster-apps-volsync
