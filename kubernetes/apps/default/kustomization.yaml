@@ -9,5 +9,5 @@ resources:
   - ./minio/ks.yaml
   #- ./overseerr/ks.yaml
   #- ./plex/ks.yaml
-  #- ./redis/ks.yaml
+  - ./redis/ks.yaml
   #- ./uptime-kuma/ks.yaml
