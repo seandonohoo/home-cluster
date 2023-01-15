@@ -5,19 +5,14 @@ metadata:
   name: minio-nfs
 spec:
   capacity:
-    storage: 1Gi
-  accessModes:
-    - ReadWriteMany
+    storage: 1Mi
+  accessModes: ["ReadWriteMany"]
   storageClassName: minio-nfs
   persistentVolumeReclaimPolicy: Retain
   nfs:
     server: 10.26.10.5
-    path: /volume3/k3s-fast
-  mountOptions:
-    - nfsvers=4.1
-    - nconnect=8
-    - hard
-    - noatime
+    path: /volume2/k3sf
+  mountOptions: ["nfsvers=4.1", "nconnect=8", "hard", "noatime"]
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -25,9 +20,8 @@ metadata:
   name: minio-nfs
   namespace: default
 spec:
-  accessModes:
-    - ReadWriteMany
+  accessModes: ["ReadWriteMany"]
   storageClassName: minio-nfs
   resources:
     requests:
-      storage: 1Gi
+      storage: 1Mi

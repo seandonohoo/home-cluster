@@ -30,3 +30,19 @@ mountOptions:
   - nconnect=8
   - hard
   - noatime
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: nfs-f
+provisioner: nfs.csi.k8s.io
+parameters:
+  server: "10.26.10.5"
+  share: /volume2/k3sf
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+mountOptions:
+  - nfsvers=4.1
+  - nconnect=8
+  - hard
+  - noatime
