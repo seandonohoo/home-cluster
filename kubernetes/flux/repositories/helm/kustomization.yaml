@@ -18,5 +18,6 @@ resources:
   - ./metallb.yaml
   - ./metrics-server.yaml
   - ./node-feature-discovery.yaml
+  - ./rook-ceph.yaml
   - ./stakater.yaml
   - ./weave-gitops.yaml
