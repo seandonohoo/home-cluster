@@ -28,8 +28,8 @@ spec:
     keepHistory: false
   values:
     monitoring:
-      enabled: true
-      createPrometheusRules: true
+      enabled: false
+      createPrometheusRules: false
     ingress:
       dashboard:
         ingressClassName: nginx
@@ -58,7 +58,7 @@ spec:
       crashCollector:
         disable: false
       dashboard:
-        enabled: true
+        enabled: false
         urlPrefix: /
         ssl: false
       storage:
@@ -67,7 +67,7 @@ spec:
         config:
           osdsPerDevice: "1"
         nodes:
-          - name: k8s1
+          - name: k3s1
             devices:
               - name: /dev/disk/by-id/ata-Samsung_SSD_850_EVO_500GB_S3PTNF0J919128P
           - name: k3s2
@@ -114,10 +114,10 @@ spec:
             activeStandby: true
             resources:
               requests:
-                cpu: 1000m
-                memory: 4Gi
+                cpu: 500m
+                memory: 2Gi
               limits:
-                memory: 4Gi
+                memory: 3Gi
         storageClass:
           enabled: true
           isDefault: false
@@ -150,7 +150,7 @@ spec:
             port: 80
             resources:
               requests:
-                cpu: 1000m
+                cpu: 500m
                 memory: 1Gi
               limits:
                 memory: 2Gi
