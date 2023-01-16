@@ -99,10 +99,10 @@ spec:
         labels:
           snapshot.home.arpa/enabled: "true"
     persistence:
-      # cache:
-      #   enabled: true
-      #   type: emptyDir
-      #   mountPath: /config/qBittorrent/cache
+      cache:
+        enabled: true
+        type: emptyDir
+        mountPath: /config/qBittorrent/cache
       media:
         enabled: true
         type: nfs
