@@ -90,7 +90,7 @@ spec:
         mountPath: /config
         accessMode: ReadWriteOnce
         size: 10Gi
-        storageClass: ceph-block
+        storageClass: local-path
         labels:
           snapshot.home.arpa/enabled: "true"
       - name: tempdownloads
