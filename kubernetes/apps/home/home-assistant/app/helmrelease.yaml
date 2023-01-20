@@ -50,7 +50,6 @@ spec:
     service:
       main:
         type: LoadBalancer
-        externalIPs: ["${SVC_HOME_ASSISTANT_ADDR}"]
         externalTrafficPolicy: Local
         ports:
           http:
@@ -89,7 +88,7 @@ spec:
         mountPath: /config
         accessMode: ReadWriteOnce
         size: 5Gi
-        storageClass: local-path
+        storageClass: ceph-block
         labels:
           snapshot.home.arpa/enabled: "true"
     resources:
