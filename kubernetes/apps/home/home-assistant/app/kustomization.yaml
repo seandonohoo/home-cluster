@@ -6,6 +6,6 @@ namespace: home
 resources:
   - ./externalsecret.yaml
   - ./helmrelease.yaml
-  #- ./backups
+  - ./volsync.yaml
 patchesStrategicMerge:
   - ./patches/addons.yaml
