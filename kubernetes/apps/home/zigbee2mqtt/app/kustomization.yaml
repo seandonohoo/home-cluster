@@ -10,4 +10,4 @@ resources:
   - ./volsync.yaml
 patchesStrategicMerge:
   - ./patches/env.yaml
-  #- ./patches/exporter.yaml
+  - ./patches/exporter.yaml
