@@ -11,4 +11,5 @@ resources:
   - ./plex/ks.yaml
   - ./redis/ks.yaml
   - ./tautulli/ks.yaml
+  - ./wizarr/ks.yaml
   #- ./uptime-kuma/ks.yaml
