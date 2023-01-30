@@ -35,7 +35,7 @@ spec:
     env:
       TZ: America/Chicago
       APP_URL: "https://wizarr.${SECRET_DOMAIN}"
-      DISABLE_BUILTIN_AUTH: "true"
+      DISABLE_BUILTIN_AUTH: "false"
     service:
       main:
         ports:
@@ -46,7 +46,7 @@ spec:
         enabled: true
         ingressClassName: nginx
         annotations:
-          auth.home.arpa/enabled: "true"
+          #auth.home.arpa/enabled: "true"
           external-dns.home.arpa/enabled: "true"
           hajimari.io/icon: mdi:account-question
         hosts:
