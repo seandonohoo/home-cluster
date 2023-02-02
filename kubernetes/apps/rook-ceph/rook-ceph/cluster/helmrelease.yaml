@@ -76,6 +76,9 @@ spec:
           - name: k3s3
             devices:
               - name: /dev/disk/by-id/ata-SPCC_Solid_State_Disk_30061644288
+          - name: k3w1
+            devices:
+              - name: /dev/disk/by-id/ata-Samsung_SSD_850_EVO_500GB_S21HNXAG513240P
     cephBlockPools:
       - name: ceph-blockpool
         spec:
