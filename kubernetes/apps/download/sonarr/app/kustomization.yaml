@@ -5,7 +5,7 @@ kind: Kustomization
 namespace: download
 resources:
   - ./helm-release.yaml
-  #- ./volsync.yaml
+  - ./volsync.yaml
 generatorOptions:
   disableNameSuffixHash: true
   annotations:
