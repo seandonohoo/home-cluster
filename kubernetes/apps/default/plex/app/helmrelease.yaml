@@ -34,14 +34,6 @@ spec:
       tag: 1.30.0.6486-629d58034@sha256:b3e3a2a305443f243643553161cff639f3dcc74349595884ac9c77cf6bb24068
     env:
       TZ: America/Chicago
-    service:
-      main:
-        type: LoadBalancer
-        externalIPs: ["${SVC_PLEX_ADDR}"]
-        externalTrafficPolicy: Local
-        ports:
-          http:
-            port: 32400
     ingress:
       main:
         enabled: true
@@ -72,7 +64,7 @@ spec:
         mountPath: /config
         accessMode: ReadWriteOnce
         size: 50Gi
-        storageClass: local-path
+        storageClass: ceph-block
         labels:
           snapshot.home.arpa/enabled: "true"
     persistence:
