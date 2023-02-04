@@ -39,7 +39,7 @@ spec:
       QBITTORRENT__PORT: &port 80
       QBITTORRENT__BT_PORT: &port-bt "${SECRET_VPN_BT_FORWARD_PORT_1}"
     podAnnotations:
-      setVPNGateway: "true"
+      setGateway: "true"
     hostname: qbitt
     service:
       main:

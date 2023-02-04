@@ -46,7 +46,7 @@ spec:
       RADARR__APPLICATION_URL: "https://{{ .Release.Name }}.${SECRET_DOMAIN}"
       RADARR__LOG_LEVEL: info
     podAnnotations:
-      setVPNGateway: "true"
+      setGateway: "true"
     service:
       main:
         ports:

@@ -45,7 +45,7 @@ spec:
         sabnzbd.default.svc.cluster.local,
         sabnzbd.donohoo.io
     podAnnotations:
-      setVPNGateway: "true"
+      setGateway: "true"
     service:
       main:
         ports:
