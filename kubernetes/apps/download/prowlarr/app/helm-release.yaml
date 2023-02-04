@@ -46,7 +46,7 @@ spec:
           http:
             port: *port
     podAnnotations:
-      setVPNGateway: "true"
+      setGateway: "true"
     ingress:
       main:
         enabled: true

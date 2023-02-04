@@ -65,11 +65,11 @@ spec:
         repository: ghcr.io/angelnu/gateway-admision-controller
         tag: v3.7.0@sha256:985eb60fd0017f657d5e66707f7e9b3f764f3337a87a379d26cd15e950bd79ad
 
-      gatewayDefault: true
-      gatewayLabel: setVPNGateway
-      gatewayAnnotation: setVPNGateway
-      namespaceSelector:
-        label: "vpn-routed-gateway"
+      gatewayDefault: false
+      gatewayLabel: setGateway
+      gatewayAnnotation: setGateway
+      # namespaceSelector:
+      #   label: "vpn-routed-gateway"
 
     livenessProbe:
       exec:
