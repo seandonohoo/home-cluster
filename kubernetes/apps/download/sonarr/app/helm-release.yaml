@@ -45,7 +45,7 @@ spec:
       SONARR__PORT: &port 80
       SONARR__LOG_LEVEL: info
     podAnnotations:
-      setVPNGateway: "true"
+      setGateway: "true"
     service:
       main:
         ports:
