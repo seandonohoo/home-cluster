@@ -34,16 +34,16 @@ spec:
       - --enable-insecure-login
       - --token-ttl=43200
     ingress:
-      enabled: true
-      className: nginx
-      annotations:
-
-        hajimari.io/icon: mdi:kubernetes
-      hosts:
-        - &host "kubernetes.${SECRET_DOMAIN}"
-      tls:
-        - hosts:
-            - *host
+      main:
+        enabled: true
+        ingressClassName: nginx
+        annotations:
+          hajimari.io/icon: mdi:kubernetes
+        hosts:
+          - &host "kubernetes.${SECRET_DOMAIN}"
+        tls:
+          - hosts:
+              - *host
     metricsScraper:
       enabled: true
     serviceMonitor:
