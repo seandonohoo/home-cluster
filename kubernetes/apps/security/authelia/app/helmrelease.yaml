@@ -40,7 +40,7 @@ spec:
         reloader.stakater.com/auto: "true"
     image:
       repository: ghcr.io/authelia/authelia
-      tag: 4.37.5 # TODO https://github.com/authelia/authelia/pull/4515
+      tag: master@sha256:f2188c02614ed9b7089ddfb0b77b19fb6077d68406e0c0206fff3d4cea6c032a # TODO https://github.com/authelia/authelia/pull/4515
     args: ["--config", "/config/configuration.yml", "--config.experimental.filters", "expand-env"]
     envFrom:
       - secretRef:
