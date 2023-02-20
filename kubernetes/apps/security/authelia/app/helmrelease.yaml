@@ -90,6 +90,13 @@ spec:
             add_header Pragma "no-cache";
             add_header X-Frame-Options "SAMEORIGIN";
             add_header X-XSS-Protection "1; mode=block";
+            proxy_set_header Host $host;
+            proxy_set_header X-Original-URL $scheme://$http_host$request_uri;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_set_header X-Forwarded-Host $http_host;
+            proxy_set_header X-Forwarded-Uri $request_uri;
+            proxy_set_header X-Forwarded-Ssl on;
+            proxy_set_header X-Forwarded-For $remote_addr;
           hajimari.io/icon: mdi:shield-account
         hosts:
           - host: &host "auth.${SECRET_DOMAIN}"
