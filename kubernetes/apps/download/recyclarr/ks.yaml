@@ -7,8 +7,8 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-    - name: cluster-apps-radarr
-    - name: cluster-apps-sonarr
+    - name: cluster-apps-radarr-app
+    - name: cluster-apps-sonarr-app
   path: ./kubernetes/apps/default/recyclarr/app
   prune: true
   sourceRef:
