@@ -2,12 +2,18 @@
 # yaml-language-server: $schema=https://json.schemastore.org/kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: download
+namespace: default
 resources:
-  - ./externalsecret.yaml
-  - ./helm-release.yaml
-  - ./volsync.yaml
+  - ./helmrelease.yaml
+configMapGenerator:
+  - name: recyclarr-configmap
+    files:
+      - ./recyclarr.yml
 generatorOptions:
   disableNameSuffixHash: true
   annotations:
     kustomize.toolkit.fluxcd.io/substitute: disabled
+labels:
+  - pairs:
+      app.kubernetes.io/name: recyclarr
+      app.kubernetes.io/instance: recyclarr
