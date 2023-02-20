@@ -9,7 +9,7 @@ spec:
   dependsOn:
     - name: cluster-apps-radarr-app
     - name: cluster-apps-sonarr-app
-  path: ./kubernetes/apps/default/recyclarr/app
+  path: ./kubernetes/apps/download/recyclarr/app
   prune: true
   sourceRef:
     kind: GitRepository
