@@ -10,7 +10,7 @@ spec:
     additionalContainers:
       exporter:
         name: exporter
-        image: ghcr.io/kpetremann/mqtt-exporter:latest@sha256:39f5aa0373978e79b66f78eb74208a83369c9904dae0155247e42e64f4f57502
+        image: ghcr.io/kpetremann/mqtt-exporter:latest@sha256:88316128d9d1e405c6f18ffa2521176a7640d35af3e6a648f60bdc858b393dcc
         env:
           - name: LOG_LEVEL
             value: DEBUG
