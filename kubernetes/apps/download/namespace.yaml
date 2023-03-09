@@ -3,11 +3,11 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: download
-  annotations:
-    volsync.backube/privileged-movers: "true"
+  # annotations:
+  #   volsync.backube/privileged-movers: "true"
   labels:
     kustomize.toolkit.fluxcd.io/prune: disabled
-    volsync.backube/privileged-movers: "true"
+    #volsync.backube/privileged-movers: "true"
     # vpn-routed-gateway: "true"
     routed-gateway: "true"
     pod-security.kubernetes.io/enforce: privileged

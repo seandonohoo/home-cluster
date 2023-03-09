@@ -6,7 +6,7 @@ namespace: download
 resources:
   - ./externalsecret.yaml
   - ./helm-release.yaml
-  - ./volsync.yaml
+  #- ./volsync.yaml
 generatorOptions:
   disableNameSuffixHash: true
   annotations:
