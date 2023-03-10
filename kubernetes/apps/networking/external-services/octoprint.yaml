@@ -9,7 +9,7 @@ metadata:
     app.kubernetes.io/instance: *app
 spec:
   type: ExternalName
-  externalName: "octoprint.${OLD_SECRET_DOMAIN}"
+  externalName: "octoprint-pi.${OLD_SECRET_DOMAIN}"
   ports:
     - name: http
       port: &port 5000
