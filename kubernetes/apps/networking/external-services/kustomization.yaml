@@ -5,3 +5,4 @@ kind: Kustomization
 namespace: networking
 resources:
   #- ./homeassistant.yaml
+  - ./octoprint.yaml
